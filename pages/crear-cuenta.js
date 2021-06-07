@@ -1,14 +1,22 @@
 import React from 'react';
+import {css} from '@emotion/react'
 import Loyout from '../components/layout/Layout'
+import {Formulario, Campo, ImputSubmit} from '../components/ui/Formulario'
+
 
 const CrearCuenta = () => {
   return (
     <div>
       <Loyout>
-        <h1>Crear Cuenta</h1>
+        <h1
+            css={css`
+                text-align: center;
+                margin-top: 5rem;                
+            `}
+        >Crear Cuenta</h1>
 
-        <form>
-            <div>
+        <Formulario>
+            <Campo>
                 <label htmlFor="nombre">Nombre</label>
 
                 <input
@@ -17,9 +25,9 @@ const CrearCuenta = () => {
                     placeholder="Tu nombre"
                     name="nombre"
                 />
-            </div>
+            </Campo>
 
-            <div>
+            <Campo>
                 <label htmlFor="email">Email</label>
 
                 <input
@@ -28,9 +36,9 @@ const CrearCuenta = () => {
                     placeholder="Tu email"
                     name="email"
                 />
-            </div>
+            </Campo>
 
-            <div>
+            <Campo>
                 <label htmlFor="password">Password</label>
 
                 <input
@@ -39,13 +47,13 @@ const CrearCuenta = () => {
                     placeholder="Tu password"
                     name="password"
                 />
-            </div>
+            </Campo>
 
-            <input
+            <ImputSubmit
                 type="submit"
                 value="Crear cuenta"
             />
-        </form>
+        </Formulario>
 
       </Loyout>
 
