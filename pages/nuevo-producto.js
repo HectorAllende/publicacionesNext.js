@@ -1,11 +1,11 @@
 import React from 'react';
 import Loyout from '../components/layout/Layout'
 
-const Nosotros = () => {
+const NuevoProducto = () => {
   return (
     <div>
       <Loyout>
-        <h1>Nosotros</h1>
+        <h1>Nuevo Producto</h1>
 
       </Loyout>
 
@@ -16,4 +16,4 @@ const Nosotros = () => {
     );
 }
  
-export default Nosotros;
+export default NuevoProducto;
