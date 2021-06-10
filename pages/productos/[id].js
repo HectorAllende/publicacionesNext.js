@@ -1,13 +1,13 @@
-import React, { useContext, useState} from 'react';
-import {useRouter} from 'next/router'
+import React, { useContext, useState } from 'react';
+import { useRouter } from 'next/router'
 import Layout from '../../components/layout/Layout'
-import {FirebaseContext} from '../../firebase'
+import { FirebaseContext } from '../../firebase'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { es } from 'date-fns/locale';
+import { es } from 'date-fns/locale';
 import Error404 from '../../components/layout/404';
-import {css} from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import {Campo, InputSubmit} from '../../components/ui/Formulario'
+import { Campo, InputSubmit } from '../../components/ui/Formulario'
 import Boton from '../../components/ui/Boton'
 
 const ContenedorProducto = styled.div`
@@ -20,31 +20,31 @@ const ContenedorProducto = styled.div`
 `
 const Producto = () => {
 
-    const [producto, guardarProducto]= useState({})
+    const [producto, guardarProducto] = useState({})
 
-    const [error, guardarError]= useState(false)
+    const [error, guardarError] = useState(false)
 
-    const {firebase} = useContext(FirebaseContext)
+    const { firebase } = useContext(FirebaseContext)
 
     const router = useRouter()
     // console.log(router)
-   
-    // accedemos al id con router
-    const {query:{id}}= router
 
-    const obtenerProducto = async()=>{
-        const productoQuery= await firebase.db.collection('productos').doc(id)
+    // accedemos al id con router
+    const { query: { id } } = router
+
+    const obtenerProducto = async () => {
+        const productoQuery = await firebase.db.collection('productos').doc(id)
         const producto = await productoQuery.get()
         // guardarProducto(producto.data())
 
-        if(producto.exists){
+        if (producto.exists) {
             guardarProducto(producto.data())
-         
-        }else{
+
+        } else {
             guardarError(true)
-         
+
         }
-       
+
     }
     obtenerProducto()
 
@@ -69,21 +69,26 @@ const Producto = () => {
 
                 {error && <Error404 />}
 
+
                 <div className="contenedor">
                     <h1 css={css`
                         text-align: center;
-                        margin-top: 5rem;
+                       
                     `}>{nombre} </h1>
 
                     <ContenedorProducto>
                         <div>
-                           <p>Publicado hace: {formatDistanceToNow(new Date(creado), {locale: es})}</p> 
+                            
+                            <img src={urlimagen} />
+                            <p
+                                css={css`
+                                    text-align: right;
+                                `}
+                            >Publicado hace: {formatDistanceToNow(new Date(creado), { locale: es })}</p>
 
-                           <img src={urlimagen}/>
+                            <p>{descripcion}</p>
 
-                           <p>{descripcion}</p>
-
-                           <h2>Agrega tu comentario</h2>
+                            <h2>Agrega tu comentario</h2>
 
                             <form>
                                 <Campo>
@@ -92,10 +97,10 @@ const Producto = () => {
                                         name="mensaje"
                                     />
                                 </Campo>
-                                 <InputSubmit
+                                <InputSubmit
                                     type="submit"
                                     value="Agregar comentario"
-                                 />
+                                />
 
                             </form>
 
@@ -104,7 +109,8 @@ const Producto = () => {
                                     margin: 2rem 0
                                 `}
                             >Comentarios</h2>
-                            {comentarios.map(comentario=>(
+
+                            {comentarios.map(comentario => (
                                 <li>
                                     <p>{comentario.nombre}</p>
                                     <p>Escrito por: {comentario.usuarioNombre}</p>
@@ -114,9 +120,28 @@ const Producto = () => {
                         </div>
 
                         <aside>
-                            <Boton>
-                            
-                            </Boton>
+                            <Boton
+                                target="_blank"
+                                bgColor="true"
+                                href={url}
+                            >Visitar pagina</Boton>
+
+                            <div
+                                css={css`
+                                    margin-top: 5rem;
+                                `}
+                            >
+                                <Boton>Me gusta</Boton>
+                                <p
+                                    css={css`
+                                    text-align: center;
+                                `}
+                                >Les gusta a {votos}</p>
+
+                            </div>
+
+
+
                         </aside>
 
                     </ContenedorProducto>
