@@ -1,15 +1,31 @@
 import React from 'react';
-import Loyout from '../components/layout/Layout'
+import Layout from '../components/layout/Layout'
+import DetallesProducto from '../components/layout/DetallesProducto'
+
+import useProductos from '../hook/useProductos'
 
 const Home = () => {
+
+  const {productos}= useProductos('creado')
+
+
+   
   return (
     <div>
-      <Loyout>
-        <h1>Inicio</h1>
-
-      </Loyout>
-
-
+      <Layout>
+        <div className="listado-productos">
+            <div className="contenedor">
+              <ul className="bg-white">
+                  {productos.map(producto=>(
+                    <DetallesProducto
+                      key={producto.id}
+                      producto={producto}
+                    />
+                  ))}
+              </ul>
+            </div>
+        </div>
+      </Layout>
     </div>
  
 

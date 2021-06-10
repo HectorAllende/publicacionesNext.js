@@ -16,14 +16,19 @@ export const Campo = styled.div`
         font-size: 1.8rem;
     }
 
-    input{
+    input,
+    textarea{
         flex: 1;
         padding: 1rem;
     }
 
+    textarea{
+        height: 100px;
+    }
+
 `
 
-export const ImputSubmit= styled.input`
+export const InputSubmit= styled.input`
   background-color: var(--naranja);
     width: 100%;
     padding: 1.5rem;
@@ -39,4 +44,16 @@ export const ImputSubmit= styled.input`
         cursor: pointer;
     }
 
+`
+
+export const Error = styled.p`
+    background-color: red;
+    padding: 1rem;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
 `

@@ -25,7 +25,7 @@ const Layout = props => {
                         box-sizing: border-box;
                         
                     }
-                    *,*:before, *:afete{
+                    *,*:before, *:after{
                         box-sizing: inherit;
                     }
                     body{
@@ -52,11 +52,15 @@ const Layout = props => {
                     a{
                         text-decoration:none;
                     }
+
+                    img{
+                        max-width: 100%;
+                    }
                 `}
 
             />
             <Head>
-                <html lang="es" />
+             
                 <title>Product Hunt Firebase y Next.js</title>
 
                 {/* Agregamos normalize y goolge font */}
