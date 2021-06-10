@@ -93,7 +93,10 @@ const DetallesProducto = ({producto}) => {
         <Producto>
             <DescripcionProducto>
                 <div>
-                    <Imagen src={urlimagen}  />
+                    <Link href="/productos/[id]" as={`/productos/${id}`}>
+                        <Imagen src={urlimagen} />
+                    </Link>
+
                 </div>
 
                 <div>
@@ -103,7 +106,7 @@ const DetallesProducto = ({producto}) => {
 
                         <Titulo>{nombre}</Titulo>
                     </Link>
-              
+
 
                     <TextoDescripcion>{descripcion}</TextoDescripcion>
                     <Comentarios>
