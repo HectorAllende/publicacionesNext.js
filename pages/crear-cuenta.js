@@ -87,7 +87,7 @@ const CrearCuenta = () => {
                 <input
                     type="password"
                     id="password"
-                    placeholder="Tu password"
+                    placeholder="Debe tener al menos 6 caracteres"
                     name="password"
                     value={password}
                     onChange={handleChange}

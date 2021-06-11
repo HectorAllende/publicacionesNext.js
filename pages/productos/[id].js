@@ -9,6 +9,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Campo, InputSubmit } from '../../components/ui/Formulario'
 import Boton from '../../components/ui/Boton'
+import Swal from 'sweetalert2'
 
 
 
@@ -146,6 +147,14 @@ const Producto = () => {
 
        guardarConsultarBD(true) //hay un comentario consutar la base de datos
 
+       Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'comentario agregado',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
              
     }
 
@@ -166,12 +175,34 @@ const Producto = () => {
             return router.push('/')
         }
 
-        try {
-            await firebase.db.collection('productos').doc(id).delete()
-            router.push('/')
-        } catch (error) {
-            console.log(error)
-        }
+        Swal.fire({
+            title: 'Estas Seguro?',
+            text: "Una publicación eliminada no se puede recuperar!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+
+                try {
+                    firebase.db.collection('productos').doc(id).delete()
+                    router.push('/')
+                } catch (error) {
+                    console.log(error)
+                }
+
+              Swal.fire(
+                'Eliminado!',
+                'Tu publicación se eliminó.',
+                'success'
+              )
+            }
+          })
+
+     
     }
 
 

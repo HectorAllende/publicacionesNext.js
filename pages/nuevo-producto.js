@@ -5,6 +5,7 @@ import FileUploader from 'react-firebase-file-uploader'
 import Layout from '../components/layout/Layout'
 import {Formulario, Campo, InputSubmit, Error} from '../components/ui/Formulario'
 import Error404 from '../components/layout/404'
+import Swal from 'sweetalert2';
 
 import {FirebaseContext} from '../firebase'
 
@@ -70,6 +71,14 @@ const NuevoProducto = () => {
     // Insertarlo en la base de datos
 
     firebase.db.collection('productos').add(producto)
+
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Publicación creada correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
     return router.push('/')
 
@@ -162,7 +171,7 @@ const NuevoProducto = () => {
                   />
                 </Campo> */}
 
-                {errores.empresa && <Error>{errores.empresa}</Error>}
+                {/* {errores.empresa && <Error>{errores.empresa}</Error>} */}
 
                 <Campo>
                   <label htmlFor="imagen">Imagen</label>
@@ -219,7 +228,7 @@ const NuevoProducto = () => {
 
               <InputSubmit
                 type="submit"
-                value="Crear Producto"
+                value="Crear Publicación"
                 css={css`
                   margin-top: 2rem;
                 `}

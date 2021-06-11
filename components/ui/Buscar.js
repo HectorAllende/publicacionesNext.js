@@ -61,7 +61,7 @@ const Buscar = () => {
         >
             <InputText
                 type="text"
-                placeholder="Buscar Productos"
+                placeholder="Buscar Publicación"
                 onChange={e=>guardarBusqueda(e.target.value)}
             />
 
