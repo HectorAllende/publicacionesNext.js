@@ -123,7 +123,7 @@ const NuevoProducto = () => {
               text-align: center;
               margin-top: 5rem;                
           `}
-            >Nuevo Producto</h1>
+            >Nueva Publicación</h1>
 
             <Formulario
               onSubmit={handleSubmit}
@@ -133,12 +133,12 @@ const NuevoProducto = () => {
               <fieldset>
                 <legend>Información General</legend>
                 <Campo>
-                  <label htmlFor="nombre">Nombre</label>
+                  <label htmlFor="nombre">Título</label>
 
                   <input
                     type="text"
                     id="nombre"
-                    placeholder="Nombre del producto"
+                    placeholder="Título de la publicación"
                     name="nombre"
                     value={nombre}
                     onChange={handleChange}
@@ -148,7 +148,7 @@ const NuevoProducto = () => {
 
                 {errores.nombre && <Error>{errores.nombre}</Error>}
 
-                <Campo>
+                {/* <Campo>
                   <label htmlFor="empresa">Empresa</label>
 
                   <input
@@ -160,7 +160,7 @@ const NuevoProducto = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                </Campo>
+                </Campo> */}
 
                 {errores.empresa && <Error>{errores.empresa}</Error>}
 
@@ -190,7 +190,7 @@ const NuevoProducto = () => {
                   <input
                     type="url"
                     id="url"
-                    placeholder="URL del producto"
+                    placeholder="URL de la publicación"
                     name="url"
                     value={url}
                     onChange={handleChange}
@@ -201,7 +201,7 @@ const NuevoProducto = () => {
                 {errores.url && <Error>{errores.url}</Error>}
               </fieldset>
               <fieldset>
-                <legend>Sobre tu producto</legend>
+                <legend>Sobre tu Publicación</legend>
                 <Campo>
                   <label htmlFor="descripcion">Descripción</label>
 
@@ -220,6 +220,9 @@ const NuevoProducto = () => {
               <InputSubmit
                 type="submit"
                 value="Crear Producto"
+                css={css`
+                  margin-top: 2rem;
+                `}
               />
             </Formulario>
           </>

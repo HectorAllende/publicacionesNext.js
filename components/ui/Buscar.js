@@ -43,7 +43,9 @@ const Buscar = () => {
         // redireccionar al usuario
 
         Router.push({
-            pathname: '/buscar'
+            pathname: '/buscar',
+            query: {q: busqueda}
+
         })
 
 

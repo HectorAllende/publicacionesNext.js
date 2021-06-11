@@ -31,7 +31,7 @@ const Navegacion = () => {
 
             {usuario && (
                 <Link href="/nuevo-producto">
-                    <a>Nuevo Producto</a>
+                    <a>Nueva Publicación</a>
                     
                 </Link>
             )}
