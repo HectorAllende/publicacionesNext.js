@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {css} from '@emotion/react'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { es } from 'date-fns/locale';
 import Link from 'next/link';
@@ -120,7 +121,11 @@ const DetallesProducto = ({producto}) => {
             </DescripcionProducto>
 
             <Votos>
-                <div> &#9650; </div>
+                <div
+                    css={css`
+                        color: red;
+                    `}
+                > &#9829; </div>
                 <p>{votos}</p>
             </Votos>
         </Producto>
