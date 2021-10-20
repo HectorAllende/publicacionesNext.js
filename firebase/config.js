@@ -1,12 +1,14 @@
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB_Na1n26r_NBhF0_9w1Uy-_05X2xnH3RI",
-  authDomain: "product-base-d41f4.firebaseapp.com",
-  databaseURL: "https://product-base-d41f4-default-rtdb.firebaseio.com",
-  projectId: "product-base-d41f4",
-  storageBucket: "product-base-d41f4.appspot.com",
-  messagingSenderId: "24202105585",
-  appId: "1:24202105585:web:e5478a592679d56d6acf50",
-  measurementId: "G-KG5QRQFY53"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATA_BASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
   export default firebaseConfig;
